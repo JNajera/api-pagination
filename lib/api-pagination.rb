@@ -95,7 +95,7 @@ module ApiPagination
       end
 
       collection = Kaminari.paginate_array(collection, paginate_array_options) if collection.is_a?(Array)
-      collection = collection.page(options[:page]).per(options[:per_page])
+      collection = collection.page(options[:page]).per_page(options[:per_page])
       collection.without_count if !collection.is_a?(Array) && !ApiPagination.config.include_total
       [collection, nil]
     end
